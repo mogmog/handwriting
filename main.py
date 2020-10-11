@@ -21,7 +21,16 @@ from urllib.parse import unquote
 async def abar(name):
 
   text='test'
-  browser = await launch(headless=True, args=['--no-sandbox'])
+  browser = await launch(
+          headless=True,
+          executablePath='/opt/headless-chromium',
+          args=[
+              '--no-sandbox',
+              '--single-process',
+              '--disable-dev-shm-usage',
+              '--disable-gpu',
+              '--no-zygote'
+          ])
   page = await browser.newPage()
   await page.goto('https://www.calligrapher.ai/')
   await page.waitFor(1000)
