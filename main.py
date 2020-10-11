@@ -21,11 +21,7 @@ from urllib.parse import unquote
 async def abar(name):
 
   text='test'
-  browser = await launch(
-      handleSIGINT=False,
-      handleSIGTERM=False,
-      handleSIGHUP=False
-  )
+  browser = await launch()
   page = await browser.newPage()
   await page.goto('https://www.calligrapher.ai/')
   await page.waitFor(1000)
