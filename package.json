@@ -1,0 +1,15 @@
+{
+  "name": "loveiscomic",
+  "version": "1.0.0",
+  "description": "LoveIsComic Puppeteer Script",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^1.7.1",
+    "fs": "^0.0.1-security",
+    "mapnik": "^4.5.3",
+    "puppeteer": "^1.9.0"
+  },
+  "scripts": {
+    "start": "functions-framework --target=makeMap",
+    "deploy": "gcloud functions deploy --region=us-central1 --runtime=nodejs8 --memory=1024MB --trigger-http makeText"
+  }
+}
